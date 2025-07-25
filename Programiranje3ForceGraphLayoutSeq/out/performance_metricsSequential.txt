@@ -1,0 +1,6 @@
+Performance Test Results:
+-------------------------
+Test: Easy Performance Test, Nodes: 100, Iterations: 200, Time: 37,47 ms
+Test: Semi-Mid Performance Test, Nodes: 750, Iterations: 1000, Time: 2002,04 ms
+Test: Max Performance Test, Nodes: 10000, Iterations: 1000, Time: 352405,03 ms
+Test: FullPerformanceTest, Nodes: 100000, Iterations: 1000, Time: 35419976,95 ms
