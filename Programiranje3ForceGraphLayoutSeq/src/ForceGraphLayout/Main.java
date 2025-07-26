@@ -11,12 +11,11 @@ public class Main {
         startFrame.add(startPanel);
         startFrame.pack();
         startFrame.setVisible(true);
-        startFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        startFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
     }
 
-    public static void startApplication(int nodeCount, int width, int height, boolean showUI) throws InterruptedException {
-        int edgeCount = nodeCount;
-        int iterations = 1000;
+    public static void startApplication(int nodeCount, int edgeCount, int iterations, int width, int height, boolean showUI) throws InterruptedException {
         long seed = 30;
         int seed1 = 40;
 
@@ -45,12 +44,14 @@ public class Main {
                 Logger.log("i am in working", LogLevel.Info);
                 if (showUI) {
                     panel.updateGraph();
+                    panel.repaint();
                 }
             }
         }
 
         long end = System.currentTimeMillis();
         Logger.log("Time used " + (end - start) + " ms, " + ((end - start) / 1000) + " s, "
-                + (double) ((end - start) / 1000) * (1 / 60.0000000000) + "min", LogLevel.Success);
+                + (double) ((end - start) / 1000) * (1 / 60.0) + " min", LogLevel.Success);
     }
+
 }

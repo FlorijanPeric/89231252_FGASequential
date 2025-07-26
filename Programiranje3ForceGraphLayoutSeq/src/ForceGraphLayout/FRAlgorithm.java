@@ -81,23 +81,20 @@ public class FRAlgorithm {
         }
     }
     private double updatePosition(){
-
-        for (Node v:graph.getNodes()){
-            double display= Math.sqrt(v.dispX * v.dispX + v.dispY * v.dispY);
-            maxDispl=Math.max(maxDispl,display);
-            //if (display==0) display=0.01;
-            if(display > 0) {
-                v.x += (v.dispX / display) * Math.min(display, temperature);
-                v.y += (v.dispY / display) * Math.min(display, temperature);
+        double maxDispl = 0;  // reset per iteration!
+        for (Node v : graph.getNodes()) {
+            double disp = Math.sqrt(v.dispX * v.dispX + v.dispY * v.dispY);
+            maxDispl = Math.max(maxDispl, disp);
+            if (disp > 0) {
+                v.x += (v.dispX / disp) * Math.min(disp, temperature);
+                v.y += (v.dispY / disp) * Math.min(disp, temperature);
             }
-            //v.x = Math.max(10,Math.min(v.x,width-10));
-            //v.y = Math.min((double) height / 2, Math.max(((double) (height * -1) / 2), v.y));
-            //v.y=Math.max(10,Math.min(v.x,width-10));
-            v.x=Math.max(1,Math.min(v.x,width-20));
-            v.y=Math.max(1,Math.min(v.y,height-30));
+            v.x = Math.max(1, Math.min(v.x, width - 20));
+            v.y = Math.max(1, Math.min(v.y, height - 30));
         }
         return maxDispl;
     }
+
     private void cooling(){
         //temperature-=Math.max(temperature*0.95,0);
         temperature=Math.max(temperature*coolingRate,0);

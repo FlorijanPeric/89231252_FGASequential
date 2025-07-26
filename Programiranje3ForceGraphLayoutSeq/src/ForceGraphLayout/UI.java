@@ -27,7 +27,7 @@ public class UI extends JPanel{
         }
     }
     public void updateGraph(){
-        Logger.log("Updating",LogLevel.Debug);
         repaint();
+        Logger.log("Updating",LogLevel.Debug);
     }
 }
